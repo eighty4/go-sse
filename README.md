@@ -4,7 +4,7 @@ This library exports a func that upgrades http requests to an event streaming co
 ```go
 http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
     var connection *sse.Connection
-    connection, _ = Upgrade(w, r)
+    connection, _ = sse.Upgrade(w, r)
     connection.SendString("thanks for connecting. here's some data.")
 })
 ```
