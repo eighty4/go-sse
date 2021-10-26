@@ -130,6 +130,7 @@ func Upgrade(writer http.ResponseWriter, request *http.Request) (*Connection, er
 	writer.Header().Set("Content-Type", "text/event-stream")
 	writer.Header().Set("Cache-Control", "no-cache")
 	writer.Header().Set("Connection", "keep-alive")
+	flusher.Flush()
 
 	handleError := func(err error) {
 		if err != nil {
